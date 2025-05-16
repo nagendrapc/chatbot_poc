@@ -7,6 +7,8 @@ function Utility(props) {
   const keys = Object.keys(props.details);
   const fieldList = keys.join(', ');
   const prompt = `Extract ${fieldList} from this message: "${input}".`;
+  const geminiapikey = ''; // Replace with your actual API key 
+
 
   console.log(props.details);
 
@@ -17,7 +19,7 @@ function Utility(props) {
 
     try {
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCfBv5Jy7S9ZdNSVifURY3jDodOrRJoUt4`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiapikey}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
