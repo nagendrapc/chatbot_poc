@@ -106,7 +106,7 @@ const SmartAssistant = ({ details }) => {
             <div className={`chat-panel ${isOpen ? 'open' : ''}`}>
   <div className="container">
     <div className="header-container">
-      <h2 className="header">🤖 Smart Banking Companion</h2>
+      <h2 className="header-assistant">🤖 Smart Banking Companion</h2>
       <button className="close-btn" onClick={() => setIsOpen(false)} aria-label="Close assistant">
         ✖
       </button>
@@ -132,14 +132,14 @@ const SmartAssistant = ({ details }) => {
     {showInput && (
       <div className="input-area">
         <textarea
-          className="textarea"
+          className="textarea-assistant"
           rows="3"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
           placeholder='e.g. "Open a savings account for John, phone 9999999999, born 1990-01-01"'
         />
-        <button className="button" onClick={sendMessage}>Submit</button>
+        <button className="button-assistant" onClick={sendMessage}>Submit</button>
       </div>
     )}
   </div>

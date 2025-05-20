@@ -116,13 +116,6 @@
   flex-shrink: 0;
   }
   
-  .header {
-    font-size: 18px;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 0;
-  }
-  
   
   .close-btn:hover {
     color: #ef4444;
@@ -169,7 +162,7 @@
   }
 
   /* Header Styles */
-  .header {
+  .header-assistant {
     font-size: 18px;
     font-weight: 600;
     color: #1f2937;
@@ -188,7 +181,7 @@
   }
 
   /* Textarea Styles */
-  .textarea {
+  .textarea-assistant {
     width: 100%;
     border: 1px solid #d1d5db;
     box-sizing: border-box;
@@ -200,14 +193,14 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .textarea:focus {
+  .textarea-assistant:focus {
     outline: none;
     border-color: #6200ea;
     box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
   }
 
   /* Button Styles */
-  .button {
+  .button-assistant {
     width: 100%;
     padding: 12px;
     background: linear-gradient(135deg, #6200ea, #8b5cf6);
@@ -221,12 +214,12 @@
     align-self: flex-end;
   }
 
-  .button:hover {
+  .button-assistant:hover {
     background: linear-gradient(135deg, #3700b3, #6d28d9);
     transform: translateY(-2px);
   }
 
-  .button:focus {
+  .button-assistant:focus {
     outline: 2px solid #fff;
     outline-offset: 2px;
   }
@@ -309,7 +302,7 @@
       padding: 12px;
     }
 
-    .textarea {
+    .textarea-assistant {
       font-size: 13px;
     }
   }

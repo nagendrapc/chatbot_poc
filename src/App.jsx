@@ -5,6 +5,7 @@ import AccountOpening from './components/AccountOpening';
 import FundTransfer from './components/FundTransfer';
 import LoanApplication from './components/LoanApplication';
 import Layout from './components/Layout';
+import './App.css'; // Assuming you have a CSS file for global styles
 
 const router = createBrowserRouter([
   {

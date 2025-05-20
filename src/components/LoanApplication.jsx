@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SmartAssistant from './SmartAssistant';
-import Utility from './Utility';
 
 
 const LoanApplication = () => {

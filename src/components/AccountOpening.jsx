@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Utility from './Utility';
-import UtilityAssistantForm from './UtilityAssistantForm';
 import SmartAssistant from './SmartAssistant'; // Assuming you have a SmartAssistant component
+import './AccountOpening.css'; // Assuming you have a CSS file for styles
 
 const AccountOpening = () => {
   const [fullname, setFullname] = useState('');
