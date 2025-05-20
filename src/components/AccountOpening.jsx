@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Utility from './Utility';
 import UtilityAssistantForm from './UtilityAssistantForm';
-import FloatingUtilityAssistant from './FloatingUtilityAssistant';
 import SmartAssistant from './SmartAssistant'; // Assuming you have a SmartAssistant component
 
 const AccountOpening = () => {
