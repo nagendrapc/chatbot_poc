@@ -27,7 +27,13 @@ const SmartAssistant = ({ details }) => {
                 await new Promise(resolve => setTimeout(resolve, 700));
                 setMessages(prev => [...prev, {
                     from: 'bot',
-                    text: `I can help extract: ${fieldList}`
+                    text: `I’m here to help auto-fill the application using the details you share.`
+                }]);
+
+                await new Promise(resolve => setTimeout(resolve, 700));
+                setMessages(prev => [...prev, {
+                    from: 'bot',
+                    text: `please provide the details to fill the application.`
                 }]);
 
                 await new Promise(resolve => setTimeout(resolve, 400));
@@ -49,6 +55,8 @@ const SmartAssistant = ({ details }) => {
         if (!input.trim()) return;
         setError(null);
         setExtracted({});
+        setMessages(prev => [...prev, { from: 'user', text: input }]);
+        const currentInput = input; // store it in case it's needed in async ops
         setInput('');
 
         // Mock API response for demonstration (since geminiapikey is empty)
@@ -105,19 +113,19 @@ const SmartAssistant = ({ details }) => {
                     </div>
 
                     <div className="chat-body">
-                        <div className="messages">
-                            {messages.map((msg, index) => (
-                                <div key={index} className={`message-row ${msg.from}`}>
-                                    {msg.from === 'bot' && (
-                                        <div className="bot-icon-wrapper">
-                                            <span className="bot-icon">🤖</span>
+                            <div className="messages">
+                                {messages.map((msg, index) => (
+                                    <div key={index} className={`message-row ${msg.from}`}>
+                                        {msg.from === 'bot' && (
+                                            <div className="bot-icon-wrapper">
+                                                <span className="bot-icon">🤖</span>
+                                            </div>
+                                        )}
+                                        <div className={`message-bubble ${msg.from}`}>
+                                            <span className="text">{msg.text}</span>
                                         </div>
-                                    )}
-                                    <div className={`message-bubble ${msg.from}`}>
-                                        <span className="text">{msg.text}</span>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
                         </div>
 
                         {showInput && (
@@ -139,19 +147,6 @@ const SmartAssistant = ({ details }) => {
 
 
             {error && <div className="error">{error}</div>}
-
-            {Object.keys(extracted).length > 0 && (
-                <div className="result-box">
-                    <h4>🧾 Extracted Info:</h4>
-                    <ul>
-                        {Object.entries(extracted).map(([key, value]) => (
-                            <li key={key}>
-                                <strong>{key}:</strong> {value}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </div>
     );
 };
