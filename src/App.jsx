@@ -1,9 +1,9 @@
 // App.jsx
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Personal from './components/Personal';
-import Official from './components/Official';
-import Social from './components/Social';
+import AccountOpening from './components/AccountOpening';
+import FundTransfer from './components/FundTransfer';
+import LoanApplication from './components/LoanApplication';
 import Layout from './components/Layout';
 
 const router = createBrowserRouter([
@@ -11,10 +11,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     children: [
-      { index: true, element: <Personal /> },
-      { path: 'personal', element: <Personal /> },
-      { path: 'official', element: <Official /> },
-      { path: 'social', element: <Social /> },
+      { index: true, element: <AccountOpening /> },
+      { path: 'accountopeningform', element: <AccountOpening /> },
+      { path: 'fundtransferform', element: <FundTransfer /> },
+      { path: 'loanapplicationform', element: <LoanApplication /> },
     ],
   },
 ]);

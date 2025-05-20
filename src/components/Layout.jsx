@@ -8,9 +8,9 @@ const Layout = () => {
             <aside className="sidebar">
                 <h3>Navigation</h3>
                 <ul>
-                    <li><NavLink to="/personal" className={({ isActive }) => isActive ? 'active' : ''}>Personal</NavLink></li>
-                    <li><NavLink to="/official" className={({ isActive }) => isActive ? 'active' : ''}>Official</NavLink></li>
-                    <li><NavLink to="/social" className={({ isActive }) => isActive ? 'active' : ''}>Social</NavLink></li>
+                    <li><NavLink to="/accountopeningform" className={({ isActive }) => isActive ? 'active' : ''}>Account Opening Form</NavLink></li>
+                    <li><NavLink to="/fundtransferform" className={({ isActive }) => isActive ? 'active' : ''}>Fund Transfer Form</NavLink></li>
+                    <li><NavLink to="/loanapplicationform" className={({ isActive }) => isActive ? 'active' : ''}>Loan Application Form</NavLink></li>
                 </ul>
             </aside>
             <main className="main-content">
