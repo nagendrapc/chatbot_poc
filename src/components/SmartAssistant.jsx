@@ -104,46 +104,46 @@ const SmartAssistant = ({ details }) => {
 
             {/* Chat Panel */}
             <div className={`chat-panel ${isOpen ? 'open' : ''}`}>
-                <div className="container">
-                    <div className="header-container">
-                        <h2 className="header">🤖 Smart Banking Companion</h2>
-                        <button className="close-btn" onClick={() => setIsOpen(false)} aria-label="Close assistant">
-                            ✖
-                        </button>
-                    </div>
+  <div className="container">
+    <div className="header-container">
+      <h2 className="header">🤖 Smart Banking Companion</h2>
+      <button className="close-btn" onClick={() => setIsOpen(false)} aria-label="Close assistant">
+        ✖
+      </button>
+    </div>
 
-                    <div className="chat-body">
-                            <div className="messages">
-                                {messages.map((msg, index) => (
-                                    <div key={index} className={`message-row ${msg.from}`}>
-                                        {msg.from === 'bot' && (
-                                            <div className="bot-icon-wrapper">
-                                                <span className="bot-icon">🤖</span>
-                                            </div>
-                                        )}
-                                        <div className={`message-bubble ${msg.from}`}>
-                                            <span className="text">{msg.text}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                        </div>
-
-                        {showInput && (
-                            <div className="input-area">
-                                <textarea
-                                    className="textarea"
-                                    rows="3"
-                                    value={input}
-                                    onChange={(e) => setInput(e.target.value)}
-                                    onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
-                                    placeholder='e.g. "Open a savings account for John, phone 9999999999, born 1990-01-01"'
-                                />
-                                <button className="button" onClick={sendMessage}>Submit</button>
-                            </div>
-                        )}
-                    </div>
-                </div>
+    <div className="chat-body">
+      <div className="messages">
+        {messages.map((msg, index) => (
+          <div key={index} className={`message-row ${msg.from}`}>
+            {msg.from === 'bot' && (
+              <div className="bot-icon-wrapper">
+                <span className="bot-icon">🤖</span>
+              </div>
+            )}
+            <div className={`message-bubble ${msg.from}`}>
+              <span className="text">{msg.text}</span>
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {showInput && (
+      <div className="input-area">
+        <textarea
+          className="textarea"
+          rows="3"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
+          placeholder='e.g. "Open a savings account for John, phone 9999999999, born 1990-01-01"'
+        />
+        <button className="button" onClick={sendMessage}>Submit</button>
+      </div>
+    )}
+  </div>
+</div>
 
 
             {error && <div className="error">{error}</div>}
