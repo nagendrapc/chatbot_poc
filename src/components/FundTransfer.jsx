@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SmartAssistant from './SmartAssistant';
+import Utility from './Utility';
 import './BankForm.css';
 
 const FundTransfer = () => {
@@ -62,7 +62,7 @@ const FundTransfer = () => {
         <button type="submit">Transfer</button>
       </form>
 
-      <SmartAssistant
+      <Utility
         details={{
           fromAccount: setFromAccount,
           toAccount: setToAccount,

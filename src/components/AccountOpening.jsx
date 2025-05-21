@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SmartAssistant from './SmartAssistant';
+import Utility from './Utility';
 import './BankForm.css';
 
 const AccountOpening = () => {
@@ -74,7 +74,7 @@ const AccountOpening = () => {
         <button type="submit">Submit</button>
       </form>
 
-      <SmartAssistant
+      <Utility
         details={{
           fullname: setFullname,
           email: setEmail,

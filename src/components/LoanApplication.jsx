@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SmartAssistant from './SmartAssistant';
 import './BankForm.css';
+import Utility from './Utility';
 
 const LoanApplication = () => {
   const [applicantName, setApplicantName] = useState('');
@@ -89,7 +89,7 @@ const LoanApplication = () => {
         <button type="submit">Apply</button>
       </form>
 
-      <SmartAssistant
+      <Utility
         details={{
           applicantName: setApplicantName,
           loanType: setLoanType,
