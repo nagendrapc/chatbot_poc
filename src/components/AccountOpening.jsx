@@ -68,7 +68,7 @@ const AccountOpening = () => {
         >
           <option value="">Select</option>
           <option value="savings">Savings</option>
-          <option value="checking">Checking</option>
+          <option value="current">Current</option>
         </select><br />
 
         <button type="submit">Submit</button>

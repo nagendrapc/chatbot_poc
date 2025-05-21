@@ -12,7 +12,7 @@ const SmartAssistant = ({ details }) => {
 
   const keys = Object.keys(details);
   const fieldList = keys.join(', ');
-  const prompt = `Extract ${fieldList} from this message: "${input}"`;
+  const prompt = `Extract any available fields from this message: "${input}". The fields to check for are: ${fieldList}. Return a JSON object with only the fields found in the message. Include fields that are not present with a null.`;
 
   useEffect(() => {
     if (isOpen) {
@@ -67,7 +67,7 @@ const SmartAssistant = ({ details }) => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: `${prompt}. Respond only with a JSON object` }] }],
+            contents: [{ parts: [{ text: prompt }] }],
           }),
         }
       );
