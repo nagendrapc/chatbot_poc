@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SmartAssistant from './SmartAssistant';
+import './BankForm.css';
 
 
 const LoanApplication = () => {
