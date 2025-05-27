@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
   padding: 2rem;
   background-color: #f5f7fa;
   min-height: 100vh;
@@ -16,7 +17,6 @@ form {
   padding: 2rem 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
   max-width: 600px;
 }
 

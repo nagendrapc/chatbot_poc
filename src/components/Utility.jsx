@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import './Utility.css'; // Ensure this CSS file is imported
+import './Utility.css';
 
 function Utility({ details }) {
-  const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [error, setError] = useState(null);
   const [extracted, setExtracted] = useState({});
@@ -42,15 +41,13 @@ function Utility({ details }) {
       const jsonString = reply.slice(jsonStart, jsonEnd);
       const parsed = JSON.parse(jsonString.trim());
 
-      for (const key in details) {
-        details[key]('');
-      }
-
       for (const key in parsed) {
         if (details[key]) {
           details[key](parsed[key]);
         }
       }
+
+      setExtracted(parsed);
     } catch (err) {
       console.error('API error:', err);
       setError('Failed to fetch response. Please try again.');
@@ -58,41 +55,26 @@ function Utility({ details }) {
   };
 
   return (
-    <div className="utility-wrapper">
-      {!isOpen && (
-        <div className="utility-icon-wrapper">
-        <div className="tooltip-message">Need help filling the form?</div>
-        <button className="utility-icon" onClick={() => setIsOpen(true)} title="Autofill Assistant">
-          🧠
+    <div className="chat-container">
+      <div className="chat-header">
+        <h2 className="chat-title">Autofill Assistant</h2>
+      </div>
+
+      <div className="chat-input-container">
+        <textarea
+          className="chat-textarea"
+          rows="5"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
+          placeholder="Type your message..."
+        />
+        <button className="chat-send-button" onClick={sendMessage}>
+          Send
         </button>
       </div>
-      
-      )}
 
-      {isOpen && (
-        <div className="chat-container">
-          <div className="chat-header">
-            <h2 className="chat-title">Autofill Assistant</h2>
-            <button className="chat-close-button" onClick={() => setIsOpen(false)}>✕</button>
-          </div>
-
-          <div className="chat-input-container">
-            <textarea
-              className="chat-textarea"
-              rows="5"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
-              placeholder="Type your message..."
-            />
-            <button className="chat-send-button" onClick={sendMessage}>
-              Send
-            </button>
-          </div>
-
-          {error && <div className="chat-error">{error}</div>}
-        </div>
-      )}
+      {error && <div className="chat-error">{error}</div>}
     </div>
   );
 }
