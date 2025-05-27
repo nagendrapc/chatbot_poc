@@ -8,7 +8,7 @@ const SmartAssistant = ({ details }) => {
   const [extracted, setExtracted] = useState({});
   const [messages, setMessages] = useState([]);
   const [showInput, setShowInput] = useState(false);
-  const geminiapikey = 'AIzaSyCfBv5Jy7S9ZdNSVifURY3jDodOrRJoUt4'; // Replace with your actual Gemini API key
+  const geminiapikey = ''; // Replace with your actual Gemini API key
 
   const keys = Object.keys(details);
   const fieldList = keys.join(', ');
