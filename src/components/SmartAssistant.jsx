@@ -91,7 +91,13 @@ const SmartAssistant = ({ details }) => {
       // Update with extracted values
       for (const key in parsed) {
         if (details[key]) {
-          details[key](parsed[key]);
+           // Special handling for dob: convert DD-MM-YYYY to YYYY-MM-DD
+          if (key === 'dob' && /^\d{2}-\d{2}-\d{4}$/.test(parsed[key])) {
+            const [day, month, year] = parsed[key].split('-');
+            details[key](`${year}-${month}-${day}`);
+          } else {
+            details[key](parsed[key]);
+          }
         }
       }
     } catch (err) {
