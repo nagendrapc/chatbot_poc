@@ -6,7 +6,7 @@ function Utility({ details }) {
   const [error, setError] = useState(null);
   const [extracted, setExtracted] = useState({});
   const [messages, setMessages] = useState([]);
-  const geminiapikey = '' // Replace with your actual Gemini API key;
+  const geminiapikey = 'AIzaSyCfBv5Jy7S9ZdNSVifURY3jDodOrRJoUt4' // Replace with your actual Gemini API key;
 
   const keys = Object.keys(details);
   const fieldList = keys.join(', ');
@@ -43,7 +43,13 @@ function Utility({ details }) {
 
       for (const key in parsed) {
         if (details[key]) {
-          details[key](parsed[key]);
+          // Special handling for dob: convert DD-MM-YYYY to YYYY-MM-DD
+          if (key === 'dob' && /^\d{2}-\d{2}-\d{4}$/.test(parsed[key])) {
+            const [day, month, year] = parsed[key].split('-');
+            details[key](`${year}-${month}-${day}`);
+          } else {
+            details[key](parsed[key]);
+          }
         }
       }
 
